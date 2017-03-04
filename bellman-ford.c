@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-struct vertice{
+//structs do grafo
+struct vertice{		
 	int valor;
 }typedef Vertice;
 
@@ -15,3 +16,5 @@ struct grafo{
 	Vertice *v;
 	Aresta *aresta;
 }typedef Grafo;
+
+//------------------------------------
