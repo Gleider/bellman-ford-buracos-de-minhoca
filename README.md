@@ -1,4 +1,4 @@
-# bellman-ford-buracos-de-minhoca
+# Descrição do trabalho
 Trabalho 2 da disciplina Algoritmos e Estruturas de Dados II
 
 Tarefa
