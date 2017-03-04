@@ -1,0 +1,5 @@
+Gleider Mackedanz de Campos 
+Anderson Cardoso
+
+Todos os requisitos do trabalho foram cumpridos. Aparantemente nenhum bug foi encontrado. 
+Apenas notamos que existe alguns erros nas saídas de testes disponibilizada pelo professor. Em virtude disso, algumas de nossas saídas foram diferentes. Acreditamos que nossas funções estejam com as saídas corretas. 
