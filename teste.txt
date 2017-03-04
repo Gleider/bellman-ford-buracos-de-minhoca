@@ -1,0 +1,8 @@
+Pontuação:
+
+	Usuario 	   Tipo 	 pontos
+-----------------------------------------------------
+         Guerra           Moeda              30
+         Guerra         Estrela              20
+      Fernandes         Estrela              50
+-----------------------------------------------------
