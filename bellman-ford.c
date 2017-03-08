@@ -41,8 +41,9 @@ int main(){
 		
 		for(i=0; i<m; i++){
 			scanf("%d %d %d", &x, &y, &t);
-			strcpy(g->e[i]->fonte, g->v[x]);
-			strcpy(g->e[i]->destino, g->v[y]);
+		
+			g->e[i].fonte = g->v[x];
+			g->e[i].destino = g->v[y];
 			g->e[i].peso = t;
 		}
 		
@@ -58,6 +59,7 @@ void *inicializaGrafo(int m){
 	Grafo *g = (Grafo*)calloc(1, sizeof(Grafo));
 	Vertice *ve = (Vertice*)calloc(m, sizeof(Vertice));
 	Aresta *ar = (Aresta*)calloc(m, sizeof(Aresta));
+
 	g->numVertices = m;
 	for(i=0; i<m; i++){
 		ve[i].valor = 0;
@@ -65,7 +67,7 @@ void *inicializaGrafo(int m){
 		//ar[i]->fonte = NULL;
 		//ar[i]->destino = NULL;
 	}
-	strcpy(g->v, ve);
-	strcpy(g->e, ar);
+	g->v = ve;
+	g->e = ar;
 	return g;
 }
