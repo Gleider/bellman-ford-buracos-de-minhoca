@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+#define INFINITO 9999;
 //structs do grafo
 
 struct vertice{	
@@ -22,7 +23,7 @@ struct grafo{
 
 //------------------------------------
 void *inicializaGrafo(int m);
-
+void belmanFord(Grafo g, int inicio);
 
 int main(){
 	int numTeste; 	// quantidade de conjuntos a serem testados
@@ -31,25 +32,27 @@ int main(){
 	int x;			// x => galáxia que está a entrada do buraco
 	int y;			// y => galáxia que está a saída do buraco
 	int t;			// t =>	diferença de tempo, em anos, entre entrada e saída
-	int i;
+	int i, ini;
 	Grafo *g;
 	
 	scanf("%d", &numTeste);
 	while(numTeste > 0){
 		scanf("%d %d", &n, &m);
-		g = inicializaGrafo(m);
+		g = inicializaGrafo(m);	
 		
-		for(i=0; i<m; i++){
+		for(i=0; i<m; i++){			//constroi as ligações entre os vértices
 			scanf("%d %d %d", &x, &y, &t);
-		
+			if(i == 0)
+				ini = x;	//início do grafo
 			g->e[i].fonte = g->v[x];
 			g->e[i].destino = g->v[y];
 			g->e[i].peso = t;
 		}
 		
+		bellmanFord(g, ini);
+		
 		numTeste--;
 	}
-	
 	
 	return 0;
 }
@@ -62,12 +65,16 @@ void *inicializaGrafo(int m){
 
 	g->numVertices = m;
 	for(i=0; i<m; i++){
-		ve[i].valor = 0;
-		ar[i].peso = 0;
-		//ar[i]->fonte = NULL;
-		//ar[i]->destino = NULL;
+		ve[i].valor = INFINITO;
+		ar[i].peso = INFINITO;
+		//ar[i].fonte = NULL;
+		//ar[i].destino = NULL;
 	}
 	g->v = ve;
 	g->e = ar;
 	return g;
+}
+
+void belmanFord(Grafo g, int inicio){
+	
 }
