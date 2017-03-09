@@ -42,3 +42,5 @@ Referências:
 
 	* http://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm
 
+Grande Gleider jedi
+
