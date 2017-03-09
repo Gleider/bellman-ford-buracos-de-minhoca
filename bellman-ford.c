@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define INFINITO 9999;
+#define INFINITO 9999
 //structs do grafo
 
 struct vertice{	
@@ -23,7 +23,7 @@ struct grafo{
 
 //------------------------------------
 void *inicializaGrafo(int m);
-void belmanFord(Grafo g, int inicio);
+int bellmanFord(Grafo *g, int inicio, int m);
 
 int main(){
 	int numTeste; 	// quantidade de conjuntos a serem testados
@@ -34,6 +34,7 @@ int main(){
 	int t;			// t =>	diferença de tempo, em anos, entre entrada e saída
 	int i, ini;
 	Grafo *g;
+	int possivel;
 	
 	scanf("%d", &numTeste);
 	while(numTeste > 0){
@@ -49,7 +50,11 @@ int main(){
 			g->e[i].peso = t;
 		}
 		
-		bellmanFord(g, ini);
+		possivel = bellmanFord(g, ini, m);
+		if(possivel == 0)
+			printf("impossivel\n");
+		else
+			printf("possivel\n");
 		
 		numTeste--;
 	}
@@ -75,6 +80,30 @@ void *inicializaGrafo(int m){
 	return g;
 }
 
-void belmanFord(Grafo g, int inicio){
+int bellmanFord(Grafo *g, int inicio, int m){
+	int i, j, d[m], u, v, p;
 	
+	for(i=0; i<g->numVertices; i++){
+		d[i] = INFINITO;
+	}
+	
+	d[inicio] = 0;
+	for(i=0; i<g->numVertices; i++){
+		for(j=0; j<m; j++){
+			u = g->e[j].fonte.valor;
+			v = g->e[j].destino.valor;
+			p = g->e[j].peso;
+			
+			if((p >=1000 && p < INFINITO) || (p <= 1000)){
+				return 1;
+			}
+			if((d[u] + p < d[u]) && (d[u] != INFINITO)){
+				d[v] = d[u] + p;
+				printf("\n%d\n", d[v]);
+			}
+			
+		}
+	}
+	return 0;
 }
+
