@@ -65,9 +65,20 @@ int main(){
 void *inicializaGrafo(int m){
 	int i;
 	Grafo *g = (Grafo*)calloc(1, sizeof(Grafo));
+	if(g==NULL){
+		printf("ERRO: memoria nao alocada com malloc\n");
+		return NULL;
+		} 
 	Vertice *ve = (Vertice*)calloc(m, sizeof(Vertice));
+	if(ve==NULL){
+		printf("ERRO: memoria nao alocada com malloc\n");
+		return NULL;
+		}
 	Aresta *ar = (Aresta*)calloc(m, sizeof(Aresta));
-
+	if(ar==NULL){
+			printf("ERRO: memoria nao alocada com malloc\n");
+			return NULL;
+		}
 	g->numVertices = m;
 	for(i=0; i<m; i++){
 		ve[i].valor = INFINITO;
